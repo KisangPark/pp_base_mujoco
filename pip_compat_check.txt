@@ -1,0 +1,8 @@
+absl-py-2.3.1 etils-1.13.0 fsspec-2025.9.0 glfw-2.10.0 importlib_resources-6.5.2 mujoco-3.3.6 numpy-2.3.3 pyopengl-3.1.10 typing_extensions-4.15.0 zipp-3.23.0
+
+mujoco 3.3.6
+should use numpy 1.26 or version 2 or higher?
+glfw version check... (currently 2.10)
+
+mujoco viewer
+mujoco-python-viewer 0.1.4
