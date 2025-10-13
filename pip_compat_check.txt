@@ -6,3 +6,4 @@ glfw version check... (currently 2.10)
 
 mujoco viewer
 mujoco-python-viewer 0.1.4
+--> viewer not in use anymore (glfw rendering used)
