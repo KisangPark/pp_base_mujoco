@@ -24,3 +24,6 @@ https://github.com/user-attachments/assets/eee15071-c544-4fcb-a2e2-82b96f67e79b
 - control robot with joint space rrt path planning
 ### simple_rl_policy
 - simple RL controller for robot
+
+## References
+1. Assets are from robosuite: https://github.com/ARISE-Initiative/robosuite/tree/master
