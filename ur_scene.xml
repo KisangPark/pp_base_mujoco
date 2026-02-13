@@ -1,0 +1,4 @@
+<mujoco model="ur5e_scene">
+    <include file="./asset/floor_white_gray.xml"/>
+    <include file="./asset/ur5e_mjcf/ur5e_ego_camera.xml"/>
+</mujoco>
