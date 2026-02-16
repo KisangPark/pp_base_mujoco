@@ -115,6 +115,7 @@
 
                   <!-- attach camera to ur, "0 -2.617993 -1.570596" -->
                   <camera name="egocentric" mode="fixed" pos="-0.2 0 -0.1" euler=" 0 0 0"/>
+                  <camera name="track_ee" mode="track" pos="0 0 0" euler=" 0 0 0"/>
                 </body>
               </body>
             </body>
