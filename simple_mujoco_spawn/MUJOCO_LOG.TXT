@@ -1,0 +1,60 @@
+Sun Feb 15 21:56:37 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 21:57:21 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 21:58:46 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 21:59:07 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 21:59:49 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 22:00:23 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:00:37 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:01:07 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:01:41 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:07:08 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:07:56 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:08:30 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:08:42 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:19:21 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:19:43 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:20:04 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Sun Feb 15 23:36:41 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Mon Feb 16 00:15:33 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Mon Feb 16 01:19:23 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
+Mon Feb 16 01:27:55 2026
+ERROR: mjv_cameraFrustum: fixed camera id is outside valid range
+
