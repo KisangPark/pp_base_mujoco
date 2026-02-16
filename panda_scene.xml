@@ -1,4 +1,0 @@
-<mujoco model="panda_scene">
-    <include file="./asset/floor_white_gray.xml"/>
-    <include file="./asset/panda/robot.xml"/>
-</mujoco>
