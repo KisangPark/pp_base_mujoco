@@ -13,8 +13,37 @@ def get_actuator_names (model, data):
     return control_names
 
 
+""" MUJOCO APPLY QPOS """
+
+def get_joint_names (model, data):
+    joint_names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_JOINT,joint_idx) for joint_idx in range(model.njnt)]
+    return joint_names
+
+def apply_qpos_idxs (model, data, idxs, value):
+    if len(idxs) != len(value):
+        raise ValueError("length of name and value is different")
+    qpos_ = np.zeros(model.nq) # number of qpos
+    for i, idx in enumerate(idxs):
+        qpos_[idx] = value[i]
+    data.qpos = qpos_    
+    return None
+
+def apply_qpos_names (model, data, names, value):
+    if len(names) != len(value):
+        raise ValueError("length of names and value is different")
+    # initialize
+    indexs = [model.joint(joint_name).qposadr[0] for joint_name in names]
+    qpos_ = np.zeros(model.nq) # number of qpos
+
+    for i, idx in enumerate(indexs):
+        qpos_[idx] = value[i]
+    data.qpos = qpos_
+    return None
+
+
 """ MUJOCO APPLY CONTROL """
-def apply_control_idx (model, data, idxs, value):
+
+def apply_control_idxs (model, data, idxs, value):
     if len(idxs) != len(value):
         raise ValueError("length of name and value is different")
     ctrl_ = np.zeros(model.nu) # number of control
@@ -23,14 +52,14 @@ def apply_control_idx (model, data, idxs, value):
     data.ctrl = ctrl_    
     return None
 
-def apply_ctrl_name (model, data, name, value):
-    if len(name) != len(value):
-        raise ValueError("length of name and value is different")
+def apply_ctrl_names (model, data, names, value):
+    if len(names) != len(value):
+        raise ValueError("length of names and value is different")
     # initialize
     control_names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_ACTUATOR,ctrl_idx) for ctrl_idx in range(model.nu)]
     ctrl_ = np.zeros(model.nu) # number of control
 
-    for i, n in enumerate(name):
+    for i, n in enumerate(names):
         if n in control_names:
             idx = control_names.index(n)
             ctrl_[idx] = value[i]
