@@ -43,7 +43,7 @@ def apply_qpos_names (model, data, names, value):
 
 """ MUJOCO APPLY CONTROL """
 
-def apply_control_idxs (model, data, idxs, value):
+def apply_ctrl_idxs (model, data, idxs, value):
     if len(idxs) != len(value):
         raise ValueError("length of name and value is different")
     ctrl_ = np.zeros(model.nu) # number of control
