@@ -3,6 +3,11 @@ Kisang Park, Robot Intelligence Lab Korea University
  - The repository is currently under development!
  - if you have any suggestions & questions, don't hesitate to contact
 
+
+## TODO
+- Geom group visualize on/off
+
+
 ## Basic Codes & Projects
 ### simple_mujoco_spawn
 - spawn UR5e robot & control with simple array

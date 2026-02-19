@@ -8,7 +8,7 @@ import time
 from functools import partial
 
 class MUJOCOGLVIEWER():
-    def __init__(self, model, data):
+    def __init__(self, model, data, window_size = (1280, 720)):
 
         # initialize with empty lists
         glfw.init()
@@ -29,7 +29,7 @@ class MUJOCOGLVIEWER():
         self.render_interval = 0.01
         self.last_render_time = time.time()
         # add default camera
-        self.add_cameras(camera_names=["default camera"], types = ['free'], sizes=[(1280, 720)])
+        self.add_cameras(camera_names=["default camera"], types = ['free'], sizes=[window_size])
 
     def add_cameras(self,camera_names, types, sizes):
         if len(camera_names) != len(sizes) or len(camera_names) != len(types):
