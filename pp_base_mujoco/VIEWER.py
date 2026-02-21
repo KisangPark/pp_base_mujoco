@@ -25,6 +25,9 @@ class MUJOCOGLVIEWER():
             sys.exit("couldn't initialize glfw")
         self.last_x, self.last_y = 0, 0
         self.mouse_button = None
+        # camera index
+        self.fixed_idx = 0
+        self.track_idx = 0
         # render interval
         self.render_interval = 0.01
         self.last_render_time = time.time()
@@ -35,8 +38,6 @@ class MUJOCOGLVIEWER():
         if len(camera_names) != len(sizes) or len(camera_names) != len(types):
             raise ValueError("Length of camera_names, sizes, and types must be the same")
         # adding mujoco camera
-        fixed_idx = 0
-        track_idx = 0
         for i, (name, size, type) in enumerate(zip(camera_names, sizes, types)):
             window = glfw.create_window(size[0], size[1], f"Camera: {name}", None, None)
             if not window:
@@ -55,12 +56,12 @@ class MUJOCOGLVIEWER():
                 glfw.set_scroll_callback(window, actual_scroll_callback) 
             elif type == 'fixed':
                 cam.type = mujoco.mjtCamera.mjCAMERA_FIXED
-                cam.fixedcamid = fixed_idx
-                fixed_idx += 1
+                cam.fixedcamid = self.fixed_idx
+                self.fixed_idx += 1
             elif type == 'track':
                 cam.type = mujoco.mjtCamera.mjCAMERA_TRACKING
-                cam.trackbodyid = track_idx
-                track_idx += 1
+                cam.trackbodyid = self.track_idx
+                self.track_idx += 1
             opt = mujoco.MjvOption()
 
             # append to list
