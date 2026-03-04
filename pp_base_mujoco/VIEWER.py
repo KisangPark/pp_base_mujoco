@@ -130,4 +130,11 @@ class MUJOCOGLVIEWER():
         mujoco.mjv_moveCamera(self.model, mujoco.mjtMouse.mjMOUSE_ZOOM, 0.0, -yoffset/100, scene, camera)
         # print(f"offsets x:{xoffset}, y:{yoffset}")
 
+    """ VIEWER OPTIONS """
+    def view_contact_forces(self, show=True):
+        for i in range(len(self.options)):
+            self.options[i].flags[mujoco.mjtVisFlag.mjVIS_CONTACTFORCE] = show
 
+    def view_geom(self, group=0, show=True):
+        for i in range(len(self.options)):
+            self.options[i].geomgroup[group] = show
