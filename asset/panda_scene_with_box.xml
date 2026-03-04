@@ -1,0 +1,6 @@
+<mujoco model="panda_scene">
+    <include file="./floor_white_gray.xml"/>
+    <!-- <include file="./panda/panda.xml"/> -->
+    <include file="./panda/panda_ee_sphere.xml"/>
+    <include file="./object/push_force_box.xml"/>
+</mujoco>
