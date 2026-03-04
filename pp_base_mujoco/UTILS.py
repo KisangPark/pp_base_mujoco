@@ -73,37 +73,6 @@ def apply_ctrl_names (model, data, names, value):
     return None
 
 
-""" MUJOCO MJ SPEC """
-
-def spec_generate_model(config):
-    """
-    GENERATE MUJOCO MODEL WITH MJSPEC
-    - Generate mujoco model from configuration file
-    """
-    try:
-        scene_path = config["scene"]
-        robots = config["robots"]
-    except:
-        raise ValueError("configuration is missing something..")
-    spec = spec = mujoco.MjSpec.from_file(scene_path)
-
-    # for multiple robots, attach frame & body
-    for robot_name, robot_config in robots.items():
-        # attach frame
-        frame_pos = robot_config["frame"]["pos"]
-        frame_quat = robot_config["frame"]["quat"]
-        frame = spec.worldbody.add_frame(pos=frame_pos, quat=frame_quat)
-        # attach body to that frame
-        hardware_name = robot_config["body"]["file"]
-        hardware_file_path = config[hardware_name]
-        spec_robot = mujoco.MjSpec.from_file(hardware_file_path)
-        body_name = robot_config["body"]["body_name"]
-        frame.attach_body(spec_robot.body(body_name), f'{robot_name}-', '')
-
-    return spec.compile() # returns mujoco model
-        
-
-
 """ TRANSFORMS """
 def euler2rmat(roll, pitch, yaw):
     R_x = np.array([[1, 0, 0],
@@ -135,3 +104,12 @@ def rmat2euler(R):
         yaw = 0
 
     return np.array([roll, pitch, yaw])
+
+def euler2quat(rpy_list):
+    roll, pitch, yaw = rpy_list
+    R = euler2rmat(roll, pitch, yaw)
+    qw = np.sqrt(1 + R[0,0] + R[1,1] + R[2,2]) / 2
+    qx = (R[2,1] - R[1,2]) / (4 * qw)
+    qy = (R[0,2] - R[2,0]) / (4 * qw)
+    qz = (R[1,0] - R[0,1]) / (4 * qw)
+    return np.array([qx, qy, qz, qw])
