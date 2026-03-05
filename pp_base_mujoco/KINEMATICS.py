@@ -4,10 +4,12 @@ import numpy as np
 import time
 import mujoco
 
+from UTILS import * 
+
 """ PREDEFINED CONSTANTS """
 POS_ROT_RATIO = 0.57
 POSITION_CLIPPING = 0.02
-ROTATION_CLIPPING = 0.1
+ROTATION_CLIPPING = 0.2
 
 """ JACOBIAN FUNCTIONS """
 
@@ -90,7 +92,8 @@ def get_ik_error_clipped(
         r_target,
         ):
     pos_error = p_target - p_current
-    rot_error = (r_target - r_current) * POS_ROT_RATIO
+    rot_error = r_target @ r_current.T
+    euler_error = rmat2euler(rot_error)* POS_ROT_RATIO
     pos_error_clipped = np.clip(pos_error, -POSITION_CLIPPING, POSITION_CLIPPING)
-    rot_error_clipped = np.clip(rot_error, -ROTATION_CLIPPING, ROTATION_CLIPPING)
-    return pos_error_clipped, rot_error_clipped
+    euler_error_clipped = np.clip(euler_error, -ROTATION_CLIPPING, ROTATION_CLIPPING)
+    return pos_error_clipped, euler_error_clipped

@@ -74,7 +74,8 @@ def apply_ctrl_names (model, data, names, value):
 
 
 """ TRANSFORMS """
-def euler2rmat(roll, pitch, yaw):
+def euler2rmat(rpy_list):
+    roll, pitch, yaw = rpy_list
     R_x = np.array([[1, 0, 0],
                     [0, np.cos(roll), -np.sin(roll)],
                     [0, np.sin(roll), np.cos(roll)]])
