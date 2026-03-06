@@ -114,3 +114,23 @@ def euler2quat(rpy_list):
     qy = (R[0,2] - R[2,0]) / (4 * qw)
     qz = (R[1,0] - R[0,1]) / (4 * qw)
     return np.array([qx, qy, qz, qw])
+
+def rmat2rotvec(R):
+    """
+    Converts a 3x3 rotation matrix to a rotation vector (axis * angle).
+    This function is required to compute the joint error for rotation with jacobian matrix.
+    """
+    # 1. Find the angle theta using the trace of the matrix
+    cos_theta = (np.trace(R) - 1.0) / 2.0
+    cos_theta = np.clip(cos_theta, -1.0, 1.0) # clip to prevent numerical issues
+    theta = np.arccos(cos_theta)
+    if theta < 1e-6:
+        return np.zeros(3)
+    # 2. rotation axis: skew-symmetric components
+    rx = R[2, 1] - R[1, 2]
+    ry = R[0, 2] - R[2, 0]
+    rz = R[1, 0] - R[0, 1]
+    axis = np.array([rx, ry, rz])
+    axis = axis / (2.0 * np.sin(theta)) # normalize 
+    
+    return theta * axis

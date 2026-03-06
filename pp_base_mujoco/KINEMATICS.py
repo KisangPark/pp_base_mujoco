@@ -4,6 +4,7 @@ import numpy as np
 import time
 import mujoco
 
+sys.path.append(os.path.dirname(__file__))
 from UTILS import * 
 
 """ PREDEFINED CONSTANTS """
@@ -91,9 +92,12 @@ def get_ik_error_clipped(
         p_target,
         r_target,
         ):
+    """
+    Get Inverse Kinematics error 
+    """
     pos_error = p_target - p_current
-    rot_error = r_target @ r_current.T
-    euler_error = rmat2euler(rot_error)* POS_ROT_RATIO
+    rmat_error = r_target @ r_current.T
+    rotvec_error = rmat2rotvec(rmat_error)* POS_ROT_RATIO
     pos_error_clipped = np.clip(pos_error, -POSITION_CLIPPING, POSITION_CLIPPING)
-    euler_error_clipped = np.clip(euler_error, -ROTATION_CLIPPING, ROTATION_CLIPPING)
-    return pos_error_clipped, euler_error_clipped
+    rotvec_error_clipped = np.clip(rotvec_error, -ROTATION_CLIPPING, ROTATION_CLIPPING)
+    return pos_error_clipped, rotvec_error_clipped

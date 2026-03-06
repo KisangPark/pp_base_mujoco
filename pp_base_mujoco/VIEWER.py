@@ -8,7 +8,7 @@ import time
 from functools import partial
 
 class MUJOCOGLVIEWER():
-    def __init__(self, model, data, window_size = (1280, 720)):
+    def __init__(self, model, data, window_size = (1920, 1080)):
 
         # initialize with empty lists
         glfw.init()
