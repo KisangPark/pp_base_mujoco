@@ -1,3 +1,4 @@
 diffusion_env
 pp_base_mujoco/__pycache__/*
 __pycache__/*
+.DS_Store
