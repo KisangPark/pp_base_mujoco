@@ -55,13 +55,9 @@ def get_pseudo_inverse(
         - damping: damping factor for DLS method
     """
     row, col = jacobian.shape
-    print(f"Jacobian shape: {jacobian.shape}")
 
     if method=='svd':
         U, Sigma, V_T = np.linalg.svd(jacobian, compute_uv=True)
-        print("U shape:", U.shape)
-        print("Sigma shape:", Sigma.shape)
-        print("V shape:", V_T.shape)
 
         # suppress singularities with modified sigma
         Sigma_clipped_rev = np.zeros_like(Sigma)

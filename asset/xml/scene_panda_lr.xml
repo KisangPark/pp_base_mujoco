@@ -1,0 +1,463 @@
+<mujoco model="floor and sky">
+  <compiler angle="radian"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" specular="0.9 0.9 0.9"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+  </visual>
+
+  <default>
+    <default class="main_right"/>
+    <default class="main_left"/>
+  </default>
+
+  <asset>
+    <texture type="skybox" colorspace="auto" builtin="gradient" rgb1="0.4 0.5 0.9" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" colorspace="auto" name="groundplane" builtin="checker" mark="edge" rgb1="0.9 0.9 0.9" rgb2="0.8 0.8 0.8" markrgb="0.8 0.8 0.8" width="1000" height="1000"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" reflectance="0.1"/>
+    <material name="Face636_001_right" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Part__Feature017_001_right" shininess="0.45"/>
+    <material name="Part__Feature018_001_right" shininess="0.45"/>
+    <material name="Part__Feature019_001_right" shininess="0.45"/>
+    <material name="Part__Feature022_001_right" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Part__Feature023_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell001_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell002_001_right" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell003_001_right" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell009_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell010_001_right" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature_001_right" shininess="0.45"/>
+    <material name="Part__Feature024_right" shininess="0.45"/>
+    <material name="Part__Feature001_010_001_002_right" shininess="0.45"/>
+    <material name="Part__Feature002_007_001_002_right" shininess="0.45"/>
+    <material name="Part__Feature003_004_001_002_right" shininess="0.45"/>
+    <material name="Part__Feature_001_001_001_002_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature001_001_003_001_right" shininess="0.45"/>
+    <material name="Part__Feature002_001_003_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature003_001_003_001_right" shininess="0.45"/>
+    <material name="Part__Feature_002_003_001_right" shininess="0.45"/>
+    <material name="Part__Feature_002_004_003_right" shininess="0.45"/>
+    <material name="Shell001_001_001_003_right" shininess="0.45" rgba="0.25 0.25 0.25 1"/>
+    <material name="Shell_001_001_003_right" shininess="0.45"/>
+    <material name="Face064_002_001_002_001_right" shininess="0.45" rgba="1 0 0 1"/>
+    <material name="Face065_002_001_002_001_right" shininess="0.45" rgba="0 1 0 1"/>
+    <material name="Face374_002_001_002_001_right" shininess="0.45"/>
+    <material name="Face539_002_001_002_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature001_009_001_002_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature002_006_001_002_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell002_002_001_002_001_right" shininess="0.45"/>
+    <material name="Shell003_002_001_002_001_right" shininess="0.45"/>
+    <material name="Shell004_001_001_002_001_right" shininess="0.45"/>
+    <material name="Shell005_001_001_002_001_right" shininess="0.45"/>
+    <material name="Shell006_003_002_001_right" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell007_002_002_001_right" shininess="0.45" rgba="0.25 0.25 0.25 1"/>
+    <material name="Shell011_002_002_001_right" shininess="0.45"/>
+    <material name="Shell012_002_002_001_right" shininess="0.45"/>
+    <material name="Shell_003_001_002_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Union001_001_001_002_001_right" shininess="0.45" rgba="0.039216 0.541176 0.780392 1"/>
+    <material name="Union_001_001_002_001_right" shininess="0.45" rgba="0.039216 0.541176 0.780392 1"/>
+    <material name="Part__Mirroring001_004_002_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring002_004_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring003_004_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring004_004_002_right" shininess="0.45"/>
+    <material name="Part__Mirroring005_004_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring006_004_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring007_004_001_right" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring_004_001_right" shininess="0.45" rgba="0.898039 0.917647 0.929412 1"/>
+    <material name="Face636_001_left" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Part__Feature017_001_left" shininess="0.45"/>
+    <material name="Part__Feature018_001_left" shininess="0.45"/>
+    <material name="Part__Feature019_001_left" shininess="0.45"/>
+    <material name="Part__Feature022_001_left" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Part__Feature023_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell001_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell002_001_left" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell003_001_left" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell009_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell010_001_left" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature_001_left" shininess="0.45"/>
+    <material name="Part__Feature024_left" shininess="0.45"/>
+    <material name="Part__Feature001_010_001_002_left" shininess="0.45"/>
+    <material name="Part__Feature002_007_001_002_left" shininess="0.45"/>
+    <material name="Part__Feature003_004_001_002_left" shininess="0.45"/>
+    <material name="Part__Feature_001_001_001_002_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature001_001_003_001_left" shininess="0.45"/>
+    <material name="Part__Feature002_001_003_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature003_001_003_001_left" shininess="0.45"/>
+    <material name="Part__Feature_002_003_001_left" shininess="0.45"/>
+    <material name="Part__Feature_002_004_003_left" shininess="0.45"/>
+    <material name="Shell001_001_001_003_left" shininess="0.45" rgba="0.25 0.25 0.25 1"/>
+    <material name="Shell_001_001_003_left" shininess="0.45"/>
+    <material name="Face064_002_001_002_001_left" shininess="0.45" rgba="1 0 0 1"/>
+    <material name="Face065_002_001_002_001_left" shininess="0.45" rgba="0 1 0 1"/>
+    <material name="Face374_002_001_002_001_left" shininess="0.45"/>
+    <material name="Face539_002_001_002_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature001_009_001_002_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Feature002_006_001_002_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Shell002_002_001_002_001_left" shininess="0.45"/>
+    <material name="Shell003_002_001_002_001_left" shininess="0.45"/>
+    <material name="Shell004_001_001_002_001_left" shininess="0.45"/>
+    <material name="Shell005_001_001_002_001_left" shininess="0.45"/>
+    <material name="Shell006_003_002_001_left" shininess="0.45" rgba="0.901961 0.921569 0.929412 1"/>
+    <material name="Shell007_002_002_001_left" shininess="0.45" rgba="0.25 0.25 0.25 1"/>
+    <material name="Shell011_002_002_001_left" shininess="0.45"/>
+    <material name="Shell012_002_002_001_left" shininess="0.45"/>
+    <material name="Shell_003_001_002_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Union001_001_001_002_001_left" shininess="0.45" rgba="0.039216 0.541176 0.780392 1"/>
+    <material name="Union_001_001_002_001_left" shininess="0.45" rgba="0.039216 0.541176 0.780392 1"/>
+    <material name="Part__Mirroring001_004_002_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring002_004_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring003_004_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring004_004_002_left" shininess="0.45"/>
+    <material name="Part__Mirroring005_004_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring006_004_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring007_004_001_left" shininess="0.45" rgba="0.25098 0.25098 0.25098 1"/>
+    <material name="Part__Mirroring_004_001_left" shininess="0.45" rgba="0.898039 0.917647 0.929412 1"/>
+    <mesh name="link0_right" file="meshes/link0.stl"/>
+    <mesh name="link1_right" file="meshes/link1.stl"/>
+    <mesh name="link2_right" file="meshes/link2.stl"/>
+    <mesh name="link3_right" file="meshes/link3.stl"/>
+    <mesh name="link4_right" file="meshes/link4.stl"/>
+    <mesh name="link5_right" file="meshes/link5.stl"/>
+    <mesh name="link6_right" file="meshes/link6.stl"/>
+    <mesh name="link7_right" file="meshes/link7.stl"/>
+    <mesh name="link0_vis_0_right" file="obj_meshes/link0_vis/link0_vis_0.obj"/>
+    <mesh name="link0_vis_1_right" file="obj_meshes/link0_vis/link0_vis_1.obj"/>
+    <mesh name="link0_vis_2_right" file="obj_meshes/link0_vis/link0_vis_2.obj"/>
+    <mesh name="link0_vis_3_right" file="obj_meshes/link0_vis/link0_vis_3.obj"/>
+    <mesh name="link0_vis_4_right" file="obj_meshes/link0_vis/link0_vis_4.obj"/>
+    <mesh name="link0_vis_5_right" file="obj_meshes/link0_vis/link0_vis_5.obj"/>
+    <mesh name="link0_vis_6_right" file="obj_meshes/link0_vis/link0_vis_6.obj"/>
+    <mesh name="link0_vis_7_right" file="obj_meshes/link0_vis/link0_vis_7.obj"/>
+    <mesh name="link0_vis_8_right" file="obj_meshes/link0_vis/link0_vis_8.obj"/>
+    <mesh name="link0_vis_9_right" file="obj_meshes/link0_vis/link0_vis_9.obj"/>
+    <mesh name="link0_vis_10_right" file="obj_meshes/link0_vis/link0_vis_10.obj"/>
+    <mesh name="link0_vis_11_right" file="obj_meshes/link0_vis/link0_vis_11.obj"/>
+    <mesh name="link1_vis_right" file="obj_meshes/link1_vis/link1_vis.obj"/>
+    <mesh name="link2_vis_right" file="obj_meshes/link2_vis/link2_vis.obj"/>
+    <mesh name="link3_vis_0_right" file="obj_meshes/link3_vis/link3_vis_0.obj"/>
+    <mesh name="link3_vis_1_right" file="obj_meshes/link3_vis/link3_vis_1.obj"/>
+    <mesh name="link3_vis_2_right" file="obj_meshes/link3_vis/link3_vis_2.obj"/>
+    <mesh name="link3_vis_3_right" file="obj_meshes/link3_vis/link3_vis_3.obj"/>
+    <mesh name="link4_vis_0_right" file="obj_meshes/link4_vis/link4_vis_0.obj"/>
+    <mesh name="link4_vis_1_right" file="obj_meshes/link4_vis/link4_vis_1.obj"/>
+    <mesh name="link4_vis_2_right" file="obj_meshes/link4_vis/link4_vis_2.obj"/>
+    <mesh name="link4_vis_3_right" file="obj_meshes/link4_vis/link4_vis_3.obj"/>
+    <mesh name="link5_vis_0_right" file="obj_meshes/link5_vis/link5_vis_0.obj"/>
+    <mesh name="link5_vis_1_right" file="obj_meshes/link5_vis/link5_vis_1.obj"/>
+    <mesh name="link5_vis_2_right" file="obj_meshes/link5_vis/link5_vis_2.obj"/>
+    <mesh name="link6_vis_0_right" file="obj_meshes/link6_vis/link6_vis_0.obj"/>
+    <mesh name="link6_vis_1_right" file="obj_meshes/link6_vis/link6_vis_1.obj"/>
+    <mesh name="link6_vis_2_right" file="obj_meshes/link6_vis/link6_vis_2.obj"/>
+    <mesh name="link6_vis_3_right" file="obj_meshes/link6_vis/link6_vis_3.obj"/>
+    <mesh name="link6_vis_4_right" file="obj_meshes/link6_vis/link6_vis_4.obj"/>
+    <mesh name="link6_vis_5_right" file="obj_meshes/link6_vis/link6_vis_5.obj"/>
+    <mesh name="link6_vis_6_right" file="obj_meshes/link6_vis/link6_vis_6.obj"/>
+    <mesh name="link6_vis_7_right" file="obj_meshes/link6_vis/link6_vis_7.obj"/>
+    <mesh name="link6_vis_8_right" file="obj_meshes/link6_vis/link6_vis_8.obj"/>
+    <mesh name="link6_vis_9_right" file="obj_meshes/link6_vis/link6_vis_9.obj"/>
+    <mesh name="link6_vis_10_right" file="obj_meshes/link6_vis/link6_vis_10.obj"/>
+    <mesh name="link6_vis_11_right" file="obj_meshes/link6_vis/link6_vis_11.obj"/>
+    <mesh name="link6_vis_12_right" file="obj_meshes/link6_vis/link6_vis_12.obj"/>
+    <mesh name="link6_vis_13_right" file="obj_meshes/link6_vis/link6_vis_13.obj"/>
+    <mesh name="link6_vis_14_right" file="obj_meshes/link6_vis/link6_vis_14.obj"/>
+    <mesh name="link6_vis_15_right" file="obj_meshes/link6_vis/link6_vis_15.obj"/>
+    <mesh name="link6_vis_16_right" file="obj_meshes/link6_vis/link6_vis_16.obj"/>
+    <mesh name="link7_vis_0_right" file="obj_meshes/link7_vis/link7_vis_0.obj"/>
+    <mesh name="link7_vis_1_right" file="obj_meshes/link7_vis/link7_vis_1.obj"/>
+    <mesh name="link7_vis_2_right" file="obj_meshes/link7_vis/link7_vis_2.obj"/>
+    <mesh name="link7_vis_3_right" file="obj_meshes/link7_vis/link7_vis_3.obj"/>
+    <mesh name="link7_vis_4_right" file="obj_meshes/link7_vis/link7_vis_4.obj"/>
+    <mesh name="link7_vis_5_right" file="obj_meshes/link7_vis/link7_vis_5.obj"/>
+    <mesh name="link7_vis_6_right" file="obj_meshes/link7_vis/link7_vis_6.obj"/>
+    <mesh name="link7_vis_7_right" file="obj_meshes/link7_vis/link7_vis_7.obj"/>
+    <mesh name="link0_left" file="meshes/link0.stl"/>
+    <mesh name="link1_left" file="meshes/link1.stl"/>
+    <mesh name="link2_left" file="meshes/link2.stl"/>
+    <mesh name="link3_left" file="meshes/link3.stl"/>
+    <mesh name="link4_left" file="meshes/link4.stl"/>
+    <mesh name="link5_left" file="meshes/link5.stl"/>
+    <mesh name="link6_left" file="meshes/link6.stl"/>
+    <mesh name="link7_left" file="meshes/link7.stl"/>
+    <mesh name="link0_vis_0_left" file="obj_meshes/link0_vis/link0_vis_0.obj"/>
+    <mesh name="link0_vis_1_left" file="obj_meshes/link0_vis/link0_vis_1.obj"/>
+    <mesh name="link0_vis_2_left" file="obj_meshes/link0_vis/link0_vis_2.obj"/>
+    <mesh name="link0_vis_3_left" file="obj_meshes/link0_vis/link0_vis_3.obj"/>
+    <mesh name="link0_vis_4_left" file="obj_meshes/link0_vis/link0_vis_4.obj"/>
+    <mesh name="link0_vis_5_left" file="obj_meshes/link0_vis/link0_vis_5.obj"/>
+    <mesh name="link0_vis_6_left" file="obj_meshes/link0_vis/link0_vis_6.obj"/>
+    <mesh name="link0_vis_7_left" file="obj_meshes/link0_vis/link0_vis_7.obj"/>
+    <mesh name="link0_vis_8_left" file="obj_meshes/link0_vis/link0_vis_8.obj"/>
+    <mesh name="link0_vis_9_left" file="obj_meshes/link0_vis/link0_vis_9.obj"/>
+    <mesh name="link0_vis_10_left" file="obj_meshes/link0_vis/link0_vis_10.obj"/>
+    <mesh name="link0_vis_11_left" file="obj_meshes/link0_vis/link0_vis_11.obj"/>
+    <mesh name="link1_vis_left" file="obj_meshes/link1_vis/link1_vis.obj"/>
+    <mesh name="link2_vis_left" file="obj_meshes/link2_vis/link2_vis.obj"/>
+    <mesh name="link3_vis_0_left" file="obj_meshes/link3_vis/link3_vis_0.obj"/>
+    <mesh name="link3_vis_1_left" file="obj_meshes/link3_vis/link3_vis_1.obj"/>
+    <mesh name="link3_vis_2_left" file="obj_meshes/link3_vis/link3_vis_2.obj"/>
+    <mesh name="link3_vis_3_left" file="obj_meshes/link3_vis/link3_vis_3.obj"/>
+    <mesh name="link4_vis_0_left" file="obj_meshes/link4_vis/link4_vis_0.obj"/>
+    <mesh name="link4_vis_1_left" file="obj_meshes/link4_vis/link4_vis_1.obj"/>
+    <mesh name="link4_vis_2_left" file="obj_meshes/link4_vis/link4_vis_2.obj"/>
+    <mesh name="link4_vis_3_left" file="obj_meshes/link4_vis/link4_vis_3.obj"/>
+    <mesh name="link5_vis_0_left" file="obj_meshes/link5_vis/link5_vis_0.obj"/>
+    <mesh name="link5_vis_1_left" file="obj_meshes/link5_vis/link5_vis_1.obj"/>
+    <mesh name="link5_vis_2_left" file="obj_meshes/link5_vis/link5_vis_2.obj"/>
+    <mesh name="link6_vis_0_left" file="obj_meshes/link6_vis/link6_vis_0.obj"/>
+    <mesh name="link6_vis_1_left" file="obj_meshes/link6_vis/link6_vis_1.obj"/>
+    <mesh name="link6_vis_2_left" file="obj_meshes/link6_vis/link6_vis_2.obj"/>
+    <mesh name="link6_vis_3_left" file="obj_meshes/link6_vis/link6_vis_3.obj"/>
+    <mesh name="link6_vis_4_left" file="obj_meshes/link6_vis/link6_vis_4.obj"/>
+    <mesh name="link6_vis_5_left" file="obj_meshes/link6_vis/link6_vis_5.obj"/>
+    <mesh name="link6_vis_6_left" file="obj_meshes/link6_vis/link6_vis_6.obj"/>
+    <mesh name="link6_vis_7_left" file="obj_meshes/link6_vis/link6_vis_7.obj"/>
+    <mesh name="link6_vis_8_left" file="obj_meshes/link6_vis/link6_vis_8.obj"/>
+    <mesh name="link6_vis_9_left" file="obj_meshes/link6_vis/link6_vis_9.obj"/>
+    <mesh name="link6_vis_10_left" file="obj_meshes/link6_vis/link6_vis_10.obj"/>
+    <mesh name="link6_vis_11_left" file="obj_meshes/link6_vis/link6_vis_11.obj"/>
+    <mesh name="link6_vis_12_left" file="obj_meshes/link6_vis/link6_vis_12.obj"/>
+    <mesh name="link6_vis_13_left" file="obj_meshes/link6_vis/link6_vis_13.obj"/>
+    <mesh name="link6_vis_14_left" file="obj_meshes/link6_vis/link6_vis_14.obj"/>
+    <mesh name="link6_vis_15_left" file="obj_meshes/link6_vis/link6_vis_15.obj"/>
+    <mesh name="link6_vis_16_left" file="obj_meshes/link6_vis/link6_vis_16.obj"/>
+    <mesh name="link7_vis_0_left" file="obj_meshes/link7_vis/link7_vis_0.obj"/>
+    <mesh name="link7_vis_1_left" file="obj_meshes/link7_vis/link7_vis_1.obj"/>
+    <mesh name="link7_vis_2_left" file="obj_meshes/link7_vis/link7_vis_2.obj"/>
+    <mesh name="link7_vis_3_left" file="obj_meshes/link7_vis/link7_vis_3.obj"/>
+    <mesh name="link7_vis_4_left" file="obj_meshes/link7_vis/link7_vis_4.obj"/>
+    <mesh name="link7_vis_5_left" file="obj_meshes/link7_vis/link7_vis_5.obj"/>
+    <mesh name="link7_vis_6_left" file="obj_meshes/link7_vis/link7_vis_6.obj"/>
+    <mesh name="link7_vis_7_left" file="obj_meshes/link7_vis/link7_vis_7.obj"/>
+  </asset>
+
+  <worldbody>
+    <geom name="floor" size="0 0 0.05" type="plane" group="1" material="groundplane"/>
+    <light pos="0 0 5.5" dir="0 0 -1" type="directional" castshadow="false" diffuse="0.5 0.5 0.5"/>
+    <body name="base_right" pos="0 0.7 0">
+      <inertial pos="0 0 0" mass="0" diaginertia="0 0 0"/>
+      <camera name="robotview_right" pos="1 0 0.4" quat="0.653098 0.271041 0.271041 0.653098"/>
+      <body name="link0_right">
+        <inertial pos="0 0 0.05" mass="4" diaginertia="0.4 0.4 0.4"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell010_001_right" mesh="link0_vis_0_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell009_001_right" mesh="link0_vis_1_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell003_001_right" mesh="link0_vis_2_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_001_right" mesh="link0_vis_3_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell002_001_right" mesh="link0_vis_4_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell001_001_right" mesh="link0_vis_5_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face636_001_right" mesh="link0_vis_6_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature018_001_right" mesh="link0_vis_7_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature019_001_right" mesh="link0_vis_8_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature023_001_right" mesh="link0_vis_9_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature022_001_right" mesh="link0_vis_10_right"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature017_001_right" mesh="link0_vis_11_right"/>
+        <geom name="link0_collision_right" type="mesh" mesh="link0_right"/>
+        <site name="right_center_right" pos="0 0 0" size="0.01" group="2" rgba="1 0.3 0.3 1"/>
+        <body name="link1_right" pos="0 0 0.333">
+          <inertial pos="0 0 -0.07" mass="3" diaginertia="0.3 0.3 0.3"/>
+          <joint name="joint1_right" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_right" mesh="link1_vis_right"/>
+          <geom name="link1_collision_right" type="mesh" mesh="link1_right"/>
+          <body name="link2_right" quat="0.707107 -0.707107 0 0">
+            <inertial pos="0 -0.1 0" mass="3" diaginertia="0.3 0.3 0.3"/>
+            <joint name="joint2_right" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature024_right" mesh="link2_vis_right"/>
+            <geom name="link2_collision_right" type="mesh" mesh="link2_right"/>
+            <body name="link3_right" pos="0 -0.316 0" quat="0.707107 0.707107 0 0">
+              <inertial pos="0.04 0 -0.05" mass="2" diaginertia="0.2 0.2 0.2"/>
+              <joint name="joint3_right" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature003_004_001_002_right" mesh="link3_vis_0_right"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature002_007_001_002_right" mesh="link3_vis_1_right"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature001_010_001_002_right" mesh="link3_vis_2_right"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_001_001_002_right" mesh="link3_vis_3_right"/>
+              <geom name="link3_collision_right" type="mesh" mesh="link3_right"/>
+              <body name="link4_right" pos="0.0825 0 0" quat="0.707107 0.707107 0 0">
+                <inertial pos="-0.04 0.05 0" mass="2" diaginertia="0.2 0.2 0.2"/>
+                <joint name="joint4_right" pos="0 0 0" axis="0 0 1" limited="true" range="-3.0718 -0.0698" damping="0.1"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature001_001_003_001_right" mesh="link4_vis_0_right"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature003_001_003_001_right" mesh="link4_vis_1_right"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature002_001_003_001_right" mesh="link4_vis_2_right"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_002_003_001_right" mesh="link4_vis_3_right"/>
+                <geom name="link4_collision_right" type="mesh" mesh="link4_right"/>
+                <body name="link5_right" pos="-0.0825 0.384 0" quat="0.707107 -0.707107 0 0">
+                  <inertial pos="0 0 -0.15" mass="2" diaginertia="0.2 0.2 0.2"/>
+                  <joint name="joint5_right" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell001_001_001_003_right" mesh="link5_vis_0_right"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_001_001_003_right" mesh="link5_vis_1_right"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_002_004_003_right" mesh="link5_vis_2_right"/>
+                  <geom name="link5_collision_right" type="mesh" mesh="link5_right"/>
+                  <body name="link6_right" quat="0.707107 0.707107 0 0">
+                    <inertial pos="0.06 0 0" mass="1.5" diaginertia="0.1 0.1 0.1"/>
+                    <joint name="joint6_right" pos="0 0 0" axis="0 0 1" limited="true" range="-0.0175 3.7525" damping="0.01"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell006_003_002_001_right" mesh="link6_vis_0_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell011_002_002_001_right" mesh="link6_vis_1_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell007_002_002_001_right" mesh="link6_vis_2_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell005_001_001_002_001_right" mesh="link6_vis_3_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell004_001_001_002_001_right" mesh="link6_vis_4_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell003_002_001_002_001_right" mesh="link6_vis_5_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell002_002_001_002_001_right" mesh="link6_vis_6_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Union001_001_001_002_001_right" mesh="link6_vis_7_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Union_001_001_002_001_right" mesh="link6_vis_8_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face539_002_001_002_001_right" mesh="link6_vis_9_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_003_001_002_001_right" mesh="link6_vis_10_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face374_002_001_002_001_right" mesh="link6_vis_11_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face065_002_001_002_001_right" mesh="link6_vis_12_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face064_002_001_002_001_right" mesh="link6_vis_13_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature002_006_001_002_001_right" mesh="link6_vis_14_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature001_009_001_002_001_right" mesh="link6_vis_15_right"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell012_002_002_001_right" mesh="link6_vis_16_right"/>
+                    <geom name="link6_collision_right" type="mesh" mesh="link6_right"/>
+                    <body name="link7_right" pos="0.088 0 0" quat="0.707107 0.707107 0 0">
+                      <inertial pos="0 0 0.08" mass="0.5" diaginertia="0.05 0.05 0.05"/>
+                      <joint name="joint7_right" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.01"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring004_004_002_right" mesh="link7_vis_0_right"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring001_004_002_right" mesh="link7_vis_1_right"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring007_004_001_right" mesh="link7_vis_2_right"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring006_004_001_right" mesh="link7_vis_3_right"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring005_004_001_right" mesh="link7_vis_4_right"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring003_004_001_right" mesh="link7_vis_5_right"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring002_004_001_right" mesh="link7_vis_6_right"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring_004_001_right" mesh="link7_vis_7_right"/>
+                      <geom name="link7_collision_right" type="mesh" mesh="link7_right"/>
+                      <body name="right_hand_right" pos="0 0 0.1065" quat="0.923785 0 0 -0.382911">
+                        <inertial pos="0 0 0" mass="0.5" diaginertia="0.05 0.05 0.05"/>
+                        <geom name="eef_sphere_right" size="0.05" group="1" rgba="1 0 0 1"/>
+                        <site name="eef_site_right" pos="0 0 0" size="0.01" rgba="1 0 0 1"/>
+                        <camera name="eye_in_hand_right" pos="0.05 0 0" quat="0 0.707107 0.707107 0" fovy="75"/>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="base_left" pos="0 -0.7 0">
+      <inertial pos="0 0 0" mass="0" diaginertia="0 0 0"/>
+      <camera name="robotview_left" pos="1 0 0.4" quat="0.653098 0.271041 0.271041 0.653098"/>
+      <body name="link0_left">
+        <inertial pos="0 0 0.05" mass="4" diaginertia="0.4 0.4 0.4"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell010_001_left" mesh="link0_vis_0_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell009_001_left" mesh="link0_vis_1_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell003_001_left" mesh="link0_vis_2_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_001_left" mesh="link0_vis_3_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell002_001_left" mesh="link0_vis_4_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell001_001_left" mesh="link0_vis_5_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face636_001_left" mesh="link0_vis_6_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature018_001_left" mesh="link0_vis_7_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature019_001_left" mesh="link0_vis_8_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature023_001_left" mesh="link0_vis_9_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature022_001_left" mesh="link0_vis_10_left"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature017_001_left" mesh="link0_vis_11_left"/>
+        <geom name="link0_collision_left" type="mesh" mesh="link0_left"/>
+        <site name="right_center_left" pos="0 0 0" size="0.01" group="2" rgba="1 0.3 0.3 1"/>
+        <body name="link1_left" pos="0 0 0.333">
+          <inertial pos="0 0 -0.07" mass="3" diaginertia="0.3 0.3 0.3"/>
+          <joint name="joint1_left" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_left" mesh="link1_vis_left"/>
+          <geom name="link1_collision_left" type="mesh" mesh="link1_left"/>
+          <body name="link2_left" quat="0.707107 -0.707107 0 0">
+            <inertial pos="0 -0.1 0" mass="3" diaginertia="0.3 0.3 0.3"/>
+            <joint name="joint2_left" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature024_left" mesh="link2_vis_left"/>
+            <geom name="link2_collision_left" type="mesh" mesh="link2_left"/>
+            <body name="link3_left" pos="0 -0.316 0" quat="0.707107 0.707107 0 0">
+              <inertial pos="0.04 0 -0.05" mass="2" diaginertia="0.2 0.2 0.2"/>
+              <joint name="joint3_left" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature003_004_001_002_left" mesh="link3_vis_0_left"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature002_007_001_002_left" mesh="link3_vis_1_left"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature001_010_001_002_left" mesh="link3_vis_2_left"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_001_001_002_left" mesh="link3_vis_3_left"/>
+              <geom name="link3_collision_left" type="mesh" mesh="link3_left"/>
+              <body name="link4_left" pos="0.0825 0 0" quat="0.707107 0.707107 0 0">
+                <inertial pos="-0.04 0.05 0" mass="2" diaginertia="0.2 0.2 0.2"/>
+                <joint name="joint4_left" pos="0 0 0" axis="0 0 1" limited="true" range="-3.0718 -0.0698" damping="0.1"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature001_001_003_001_left" mesh="link4_vis_0_left"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature003_001_003_001_left" mesh="link4_vis_1_left"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature002_001_003_001_left" mesh="link4_vis_2_left"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_002_003_001_left" mesh="link4_vis_3_left"/>
+                <geom name="link4_collision_left" type="mesh" mesh="link4_left"/>
+                <body name="link5_left" pos="-0.0825 0.384 0" quat="0.707107 -0.707107 0 0">
+                  <inertial pos="0 0 -0.15" mass="2" diaginertia="0.2 0.2 0.2"/>
+                  <joint name="joint5_left" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell001_001_001_003_left" mesh="link5_vis_0_left"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_001_001_003_left" mesh="link5_vis_1_left"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_002_004_003_left" mesh="link5_vis_2_left"/>
+                  <geom name="link5_collision_left" type="mesh" mesh="link5_left"/>
+                  <body name="link6_left" quat="0.707107 0.707107 0 0">
+                    <inertial pos="0.06 0 0" mass="1.5" diaginertia="0.1 0.1 0.1"/>
+                    <joint name="joint6_left" pos="0 0 0" axis="0 0 1" limited="true" range="-0.0175 3.7525" damping="0.01"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell006_003_002_001_left" mesh="link6_vis_0_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell011_002_002_001_left" mesh="link6_vis_1_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell007_002_002_001_left" mesh="link6_vis_2_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell005_001_001_002_001_left" mesh="link6_vis_3_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell004_001_001_002_001_left" mesh="link6_vis_4_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell003_002_001_002_001_left" mesh="link6_vis_5_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell002_002_001_002_001_left" mesh="link6_vis_6_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Union001_001_001_002_001_left" mesh="link6_vis_7_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Union_001_001_002_001_left" mesh="link6_vis_8_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face539_002_001_002_001_left" mesh="link6_vis_9_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_003_001_002_001_left" mesh="link6_vis_10_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face374_002_001_002_001_left" mesh="link6_vis_11_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face065_002_001_002_001_left" mesh="link6_vis_12_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Face064_002_001_002_001_left" mesh="link6_vis_13_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature002_006_001_002_001_left" mesh="link6_vis_14_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature001_009_001_002_001_left" mesh="link6_vis_15_left"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell012_002_002_001_left" mesh="link6_vis_16_left"/>
+                    <geom name="link6_collision_left" type="mesh" mesh="link6_left"/>
+                    <body name="link7_left" pos="0.088 0 0" quat="0.707107 0.707107 0 0">
+                      <inertial pos="0 0 0.08" mass="0.5" diaginertia="0.05 0.05 0.05"/>
+                      <joint name="joint7_left" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.01"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring004_004_002_left" mesh="link7_vis_0_left"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring001_004_002_left" mesh="link7_vis_1_left"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring007_004_001_left" mesh="link7_vis_2_left"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring006_004_001_left" mesh="link7_vis_3_left"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring005_004_001_left" mesh="link7_vis_4_left"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring003_004_001_left" mesh="link7_vis_5_left"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring002_004_001_left" mesh="link7_vis_6_left"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Mirroring_004_001_left" mesh="link7_vis_7_left"/>
+                      <geom name="link7_collision_left" type="mesh" mesh="link7_left"/>
+                      <body name="right_hand_left" pos="0 0 0.1065" quat="0.923785 0 0 -0.382911">
+                        <inertial pos="0 0 0" mass="0.5" diaginertia="0.05 0.05 0.05"/>
+                        <geom name="eef_sphere_left" size="0.05" group="1" rgba="1 0 0 1"/>
+                        <site name="eef_site_left" pos="0 0 0" size="0.01" rgba="1 0 0 1"/>
+                        <camera name="eye_in_hand_left" pos="0.05 0 0" quat="0 0.707107 0.707107 0" fovy="75"/>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="box" pos="0.2 0 0.15">
+      <geom name="box" size="0.15 0.15 0.15" type="box" group="1" rgba="0.3 0.3 0.3 0.5"/>
+      <site name="contact_right" pos="0 0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
+      <site name="contact_left" pos="0 -0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
+      <site name="center" pos="0 0 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <general name="torq_j1_right" joint="joint1_right" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j2_right" joint="joint2_right" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j3_right" joint="joint3_right" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j4_right" joint="joint4_right" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j5_right" joint="joint5_right" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j6_right" joint="joint6_right" ctrllimited="true" ctrlrange="-12 12"/>
+    <general name="torq_j7_right" joint="joint7_right" ctrllimited="true" ctrlrange="-12 12"/>
+    <general name="torq_j1_left" joint="joint1_left" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j2_left" joint="joint2_left" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j3_left" joint="joint3_left" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j4_left" joint="joint4_left" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j5_left" joint="joint5_left" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j6_left" joint="joint6_left" ctrllimited="true" ctrlrange="-12 12"/>
+    <general name="torq_j7_left" joint="joint7_left" ctrllimited="true" ctrlrange="-12 12"/>
+  </actuator>
+</mujoco>

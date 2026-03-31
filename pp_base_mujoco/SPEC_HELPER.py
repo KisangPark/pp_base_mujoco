@@ -10,12 +10,14 @@ from lxml import etree
 import mujoco
 from pp_base_mujoco.UTILS import *
 
-class MJSPECHELPER:
+class MjSpecHelper:
     def __init__(
             self,
             xml_path = "../asset/floor_white_gray.xml"
             ): 
         self.spec = mujoco.MjSpec.from_file(xml_path)
+        self.spec.compiler.degree = 0 # set compiler option from degree to radian 
+        self.body_dict = {}
 
     def add_robot(
             self,
@@ -55,7 +57,8 @@ class MJSPECHELPER:
             rgba=(0.3, 0.3, 0.3, 0.5),
             group=0,
             friction=(1.0, 0.005, 0.0001),
-            mass=1.0 # 1kg
+            mass=1.0, # 1kg
+            body_name=None
     ):
         """ 
         Add geometry to MjSpec, with body encapsulation
@@ -68,39 +71,87 @@ class MJSPECHELPER:
             - name: name of the geometry
             - rgba: color and transparency of the geometry (optional)
         """
-        body = self.spec.worldbody.add_body(
-            name=name,
-            pos=p,
-            euler=r
-        )
-        if freejoint:
-            body.add_freejoint()
+        if body_name is None:
+            body = self.spec.worldbody.add_body(
+                name=name,
+                pos=p,
+                euler=r
+            )
+            self.body_dict[name] = body
+        else: 
+            body = self.body_dict[body_name]
+
+        if freejoint: body.add_freejoint()
         if type == "box":
             body.add_geom(
+                name       = name,
                 type       = mujoco.mjtGeom.mjGEOM_BOX,
                 size       = size,
                 pos        = np.zeros((3)),
                 euler      = [0, 0, 0],
-                rgba       = rgba
+                rgba       = rgba,
+                group      = group,
             )
         elif type == "sphere":
             body.add_geom(
+                name       = name,
                 type       = mujoco.mjtGeom.mjGEOM_SPHERE,
                 size       = size,
                 pos        = np.zeros((3)),
                 euler      = [0, 0, 0],
-                rgba       = rgba
+                rgba       = rgba,
+                group      = group,
             )
         elif type == "cylinder":
             body.add_geom(
+                name       = name,
                 type       = mujoco.mjtGeom.mjGEOM_CYLINDER,
                 size       = size,
                 pos        = np.zeros((3)),
                 euler      = [0, 0, 0],
-                rgba       = rgba
+                rgba       = rgba,
+                group      = group
             )
         else:
             raise ValueError("Unsupported geometry type: {}".format(type))
+        
+    def add_site(
+            self,
+            name,
+            size,
+            p=(0, 0, 0),
+            r=(0, 0, 0),
+            rgba=(1.0, 0.0, 0.0, 1.0),
+            group=0,
+            body_name=None
+    ):
+        """ 
+        Add site to MjSpec, with body encapsulation / default type sphere 
+        Args:
+            - name: name of the site
+            - size: size of the site (e.g., [radius] for sphere site)
+            - p: position of the site
+            - r: rotation of the site
+            - rgba: color and transparency of the site (optional)
+        """
+        if body_name is None:
+            body = self.spec.worldbody.add_body(
+                pos=p,
+                euler=r
+            )
+            self.body_dict[body_name] = body
+        else: 
+            body = self.body_dict[body_name]
+
+        body.add_site(
+            name       = name,
+            type       = mujoco.mjtGeom.mjGEOM_SPHERE,
+            size       = size,
+            pos        = p,
+            euler      = r,
+            rgba       = rgba,
+            group      = group
+        )
         
     def compile(self):
         """ Compile the MjSpec to check for errors and prepare for simulation """
@@ -120,3 +171,9 @@ class MJSPECHELPER:
         tree = etree.fromstring(rough_string, parser=parser)
         pretty_xml = etree.tostring(tree, pretty_print=True, encoding='unicode')
         print(pretty_xml)
+
+    def save_to_xml(self, path):
+        """ Save the MjSpec to an XML file """
+        xml_str = self.spec.to_xml()
+        with open(path, 'w') as f:
+            f.write(xml_str)

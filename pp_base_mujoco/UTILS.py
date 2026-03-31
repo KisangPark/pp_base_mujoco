@@ -8,6 +8,10 @@ def get_body_names (model, data):
     body_names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_BODY, body_idx) for body_idx in range(model.nbody)]
     return body_names
 
+def get_geom_names (model, data):
+    geom_names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_GEOM, geom_idx) for geom_idx in range(model.ngeom)]
+    return geom_names
+
 def get_site_names (model, data):
     site_names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_SITE, site_idx) for site_idx in range(model.nsite)]
     return site_names
@@ -16,33 +20,33 @@ def get_actuator_names (model, data):
     control_names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_ACTUATOR,ctrl_idx) for ctrl_idx in range(model.nu)]
     return control_names
 
-
-""" MUJOCO APPLY QPOS """
-
 def get_joint_names (model, data):
     joint_names = [mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_JOINT,joint_idx) for joint_idx in range(model.njnt)]
     return joint_names
 
+def get_qpos_with_names (model, data, names):
+    qpos_ = np.zeros(len(names)) # number of qpos
+    for i, name in enumerate(names):
+        idx = model.joint(name).qposadr[0]
+        qpos_[i] = data.qpos[idx]
+    return qpos_
+
+""" MUJOCO APPLY QPOS """
+    
 def apply_qpos_idxs (model, data, idxs, value):
     if len(idxs) != len(value):
         raise ValueError("length of name and value is different")
     qpos_ = np.zeros(model.nq) # number of qpos
     for i, idx in enumerate(idxs):
-        qpos_[idx] = value[i]
-    data.qpos = qpos_    
-    return None
+        data.qpos[idx] = value[i]
 
 def apply_qpos_names (model, data, names, value):
     if len(names) != len(value):
         raise ValueError("length of names and value is different")
     # initialize
     indexs = [model.joint(joint_name).qposadr[0] for joint_name in names]
-    qpos_ = np.zeros(model.nq) # number of qpos
-
     for i, idx in enumerate(indexs):
-        qpos_[idx] = value[i]
-    data.qpos = qpos_
-    return None
+        data.qpos[idx] = value[i]
 
 
 """ MUJOCO APPLY CONTROL """

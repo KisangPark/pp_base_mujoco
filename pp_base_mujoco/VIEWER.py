@@ -138,3 +138,7 @@ class MUJOCOGLVIEWER():
     def view_geom(self, group=0, show=True):
         for i in range(len(self.options)):
             self.options[i].geomgroup[group] = show
+
+    def view_site(self, group=0, show=True):
+        for i in range(len(self.options)):
+            self.options[i].sitegroup[group] = show
