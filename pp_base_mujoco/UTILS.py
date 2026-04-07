@@ -31,6 +31,49 @@ def get_qpos_with_names (model, data, names):
         qpos_[i] = data.qpos[idx]
     return qpos_
 
+def get_qvel_with_names (model, data, names):
+    qvel_ = np.zeros(len(names)) # number of qvel
+    for i, name in enumerate(names):
+        idx = model.joint(name).qposadr[0]
+        qvel_[i] = data.qvel[idx]
+    return qvel_
+
+""" GET P&R """
+
+def get_p(model, data, name, type='body'):
+    try:
+        if type == 'body':
+            obj_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, name)
+            return data.xpos[obj_id]
+        elif type == 'geom':
+            obj_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_GEOM, name)
+            return data.geom_xpos[obj_id]
+        elif type == 'site':
+            obj_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SITE, name)
+            return data.site_xpos[obj_id]
+        else:
+            raise ValueError("type must be 'body', 'geom', or 'site'")
+    except Exception as e:
+        print(f"Error: Could not find {type} named '{name}'.")
+        return None
+
+def get_R(model, data, name, type='body'):
+    try:
+        if type == 'body':
+            obj_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, name)
+            return data.xmat[obj_id].reshape(3, 3)
+        elif type == 'geom':
+            obj_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_GEOM, name)
+            return data.geom_xmat[obj_id].reshape(3, 3)
+        elif type == 'site':
+            obj_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SITE, name)
+            return data.site_xmat[obj_id].reshape(3, 3)      
+        else:
+            raise ValueError("type must be 'body', 'geom', or 'site'")
+    except Exception as e:
+        print(f"Error: Could not find {type} named '{name}'.")
+        return None
+
 """ MUJOCO APPLY QPOS """
     
 def apply_qpos_idxs (model, data, idxs, value):
