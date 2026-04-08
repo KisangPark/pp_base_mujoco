@@ -2,7 +2,7 @@
 <mujoco model="push force box">
   <worldbody>
     <body name="box" pos="0.392 0.0 0.2">
-      <geom type="box" pos="0.0 0.0 0.0" size="0.05 0.05 0.2" rgba="0.3 0.3 0.3 0.5" group="1"/>
+      <geom type="box" pos="0.0 0.0 0.0" size="0.05 0.05 0.2" rgba="0.3 0.3 0.3 0.5" group="1" mass="0.01" inertia="0.001 0.001 0.001" friction="1.0 0.01 0.001"/>
       <!-- <geom type="box_collision" pos="0.0 0.0 0.0" size="0.05 0.05 0.2" rgba="0 1 0 1" group="0"/> -->
     </body>
   </worldbody>

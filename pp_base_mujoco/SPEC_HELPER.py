@@ -46,6 +46,33 @@ class MjSpecHelper:
             suffix=suffix
             )
     
+    def add_body(
+            self,
+            name = "",
+            freejoint=False,
+            p=(0, 0, 0),
+            r=(0, 0, 0),
+    ):
+        """ 
+        Add geometry to MjSpec, with body encapsulation
+        Args:
+            - type: type of the geometry (e.g., "box", "sphere", "cylinder")
+            - size: size of the geometry (e.g., for box: [length, width, height], for sphere: [radius], for cylinder: [radius, height])
+            - freejoint: whether the geometry is freejoint
+            - p: position of the geometry
+            - r: rotation of the geometry
+            - name: name of the geometry
+            - rgba: color and transparency of the geometry (optional)
+        """
+        body = self.spec.worldbody.add_body(
+            name=name,
+            pos=p,
+            euler=r
+        )
+        self.body_dict[name] = body
+        if freejoint: body.add_freejoint()
+
+
     def add_geom(
             self,
             type,
