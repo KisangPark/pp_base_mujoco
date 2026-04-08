@@ -118,6 +118,8 @@ class MjSpecHelper:
                 euler      = [0, 0, 0],
                 rgba       = rgba,
                 group      = group,
+                mass       = mass,
+                friction    = friction
             )
         elif type == "sphere":
             body.add_geom(
@@ -128,6 +130,8 @@ class MjSpecHelper:
                 euler      = [0, 0, 0],
                 rgba       = rgba,
                 group      = group,
+                mass       = mass,
+                friction   = friction
             )
         elif type == "cylinder":
             body.add_geom(
@@ -137,7 +141,9 @@ class MjSpecHelper:
                 pos        = np.zeros((3)),
                 euler      = [0, 0, 0],
                 rgba       = rgba,
-                group      = group
+                group      = group,
+                mass       = mass,
+                friction   = friction
             )
         else:
             raise ValueError("Unsupported geometry type: {}".format(type))

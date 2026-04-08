@@ -438,7 +438,7 @@
     </body>
     <body name="box" pos="0.2 0 0.15">
       <joint type="free"/>
-      <geom name="box" size="0.15 0.15 0.15" type="box" group="1" rgba="0.3 0.3 0.3 0.5"/>
+      <geom name="box" size="0.15 0.15 0.15" type="box" group="1" friction="0.5" mass="0.1" rgba="0.3 0.3 0.3 0.5"/>
       <site name="contact_right" pos="0 0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
       <site name="contact_left" pos="0 -0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
       <site name="center" pos="0 0 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
