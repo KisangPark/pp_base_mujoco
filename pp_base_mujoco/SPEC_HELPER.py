@@ -84,8 +84,11 @@ class MjSpecHelper:
             rgba=(0.3, 0.3, 0.3, 0.5),
             group=0,
             friction=(1.0, 0.005, 0.0001),
+            condim=3,
             mass=1.0, # 1kg
-            body_name=None
+            body_name=None,
+            solimp=(0.9, 0.95, 0.001, 0.5, 2),
+            solref=(0.02, 1.0),
     ):
         """ 
         Add geometry to MjSpec, with body encapsulation
@@ -119,7 +122,10 @@ class MjSpecHelper:
                 rgba       = rgba,
                 group      = group,
                 mass       = mass,
-                friction    = friction
+                friction    = friction,
+                condim      = condim,
+                solimp      = solimp,
+                solref      = solref
             )
         elif type == "sphere":
             body.add_geom(
@@ -131,7 +137,10 @@ class MjSpecHelper:
                 rgba       = rgba,
                 group      = group,
                 mass       = mass,
-                friction   = friction
+                friction   = friction,
+                condim      = condim,
+                solimp      = solimp,
+                solref      = solref
             )
         elif type == "cylinder":
             body.add_geom(
@@ -143,7 +152,10 @@ class MjSpecHelper:
                 rgba       = rgba,
                 group      = group,
                 mass       = mass,
-                friction   = friction
+                friction   = friction,
+                condim      = condim,
+                solimp      = solimp,
+                solref      = solref
             )
         else:
             raise ValueError("Unsupported geometry type: {}".format(type))
