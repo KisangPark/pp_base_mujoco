@@ -19,6 +19,7 @@ def get_jacobian(
         data,
         name,
         type="body",
+        joints_use=None
 ):
     """
     Get Jacobian of given body/geom/site
@@ -27,17 +28,26 @@ def get_jacobian(
         - data: mujoco data
         - name: name of the body/geom/site
         - type: "body", "geom", or "site"
+        - joints_use: list of joint names to use for Jacobian (if None, use all joints)
     """
-    Jacobian_p = np.zeros((3, model.nu))
-    Jacobian_r = np.zeros((3, model.nu))
+    joints_use_idxs = [model.jnt_dofadr[mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_JOINT,name)] for name in joints_use] if joints_use is not None else None
+    jacp_full = np.zeros((3, model.nv))
+    jacr_full = np.zeros((3, model.nv))
     if type == "body":
-        mujoco.mj_jacBody(model, data, Jacobian_p, Jacobian_r, data.body(name).id)
+        mujoco.mj_jacBody(model, data, jacp_full, jacr_full, data.body(name).id)
     elif type == "geom":
-        mujoco.mj_jacGeom(model, data, Jacobian_p, Jacobian_r, data.geom(name).id)
+        mujoco.mj_jacGeom(model, data, jacp_full, jacr_full, data.geom(name).id)
     elif type == "site":
-        mujoco.mj_jacSite(model, data, Jacobian_p, Jacobian_r, data.site(name).id)
-    
-    return Jacobian_p, Jacobian_r
+        mujoco.mj_jacSite(model, data, jacp_full, jacr_full, data.site(name).id)
+
+    if joints_use_idxs is not None:
+        jacp_use = jacp_full[:, joints_use_idxs]
+        jacr_use = jacr_full[:, joints_use_idxs]
+    else:
+        jacp_use = jacp_full
+        jacr_use = jacr_full
+
+    return jacp_use, jacr_use
 
 
 def get_pseudo_inverse(
