@@ -257,12 +257,12 @@
         <site name="right_center_right" pos="0 0 0" size="0.01" group="2" rgba="1 0.3 0.3 1"/>
         <body name="link1_right" pos="0 0 0.333">
           <inertial pos="0 0 -0.07" mass="3" diaginertia="0.3 0.3 0.3"/>
-          <joint name="joint1_right" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+          <joint name="joint1_right" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
           <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_right" mesh="link1_vis_right"/>
           <geom name="link1_collision_right" type="mesh" mesh="link1_right"/>
           <body name="link2_right" quat="0.707107 -0.707107 0 0">
             <inertial pos="0 -0.1 0" mass="3" diaginertia="0.3 0.3 0.3"/>
-            <joint name="joint2_right" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
+            <joint name="joint2_right" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
             <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature024_right" mesh="link2_vis_right"/>
             <geom name="link2_collision_right" type="mesh" mesh="link2_right"/>
             <body name="link3_right" pos="0 -0.316 0" quat="0.707107 0.707107 0 0">
@@ -357,12 +357,12 @@
         <site name="right_center_left" pos="0 0 0" size="0.01" group="2" rgba="1 0.3 0.3 1"/>
         <body name="link1_left" pos="0 0 0.333">
           <inertial pos="0 0 -0.07" mass="3" diaginertia="0.3 0.3 0.3"/>
-          <joint name="joint1_left" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+          <joint name="joint1_left" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
           <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_left" mesh="link1_vis_left"/>
           <geom name="link1_collision_left" type="mesh" mesh="link1_left"/>
           <body name="link2_left" quat="0.707107 -0.707107 0 0">
             <inertial pos="0 -0.1 0" mass="3" diaginertia="0.3 0.3 0.3"/>
-            <joint name="joint2_left" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
+            <joint name="joint2_left" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
             <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature024_left" mesh="link2_vis_left"/>
             <geom name="link2_collision_left" type="mesh" mesh="link2_left"/>
             <body name="link3_left" pos="0 -0.316 0" quat="0.707107 0.707107 0 0">
@@ -437,8 +437,6 @@
       </body>
     </body>
     <body name="box" pos="0.2 0 0.15">
-      <joint type="free"/>
-      <geom name="box" size="0.15 0.15 0.15" type="box" condim="4" group="1" friction="1 0.05 0.01" solref="0.01" solimp="0.98 0.999" mass="0.5" rgba="0.3 0.3 0.3 0.5"/>
       <site name="contact_right" pos="0 0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
       <site name="contact_left" pos="0 -0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
       <site name="center" pos="0 0 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
@@ -446,14 +444,14 @@
   </worldbody>
 
   <actuator>
-    <general name="torq_j1_right" joint="joint1_right" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j1_right" joint="joint1_right" ctrllimited="false"/>
     <general name="torq_j2_right" joint="joint2_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j3_right" joint="joint3_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j4_right" joint="joint4_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j5_right" joint="joint5_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j6_right" joint="joint6_right" ctrllimited="true" ctrlrange="-12 12"/>
     <general name="torq_j7_right" joint="joint7_right" ctrllimited="true" ctrlrange="-12 12"/>
-    <general name="torq_j1_left" joint="joint1_left" ctrllimited="true" ctrlrange="-80 80"/>
+    <general name="torq_j1_left" joint="joint1_left" ctrllimited="false"/>
     <general name="torq_j2_left" joint="joint2_left" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j3_left" joint="joint3_left" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j4_left" joint="joint4_left" ctrllimited="true" ctrlrange="-80 80"/>
