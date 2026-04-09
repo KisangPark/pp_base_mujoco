@@ -236,7 +236,7 @@
   <worldbody>
     <geom name="floor" size="0 0 0.05" type="plane" group="1" material="groundplane"/>
     <light pos="0 0 5.5" dir="0 0 -1" type="directional" castshadow="false" diffuse="0.5 0.5 0.5"/>
-    <body name="base_right" pos="0 0.7 0">
+    <body name="base_right" pos="0 0.7 0" quat="0.707388 0 0 -0.706825">
       <inertial pos="0 0 0" mass="0" diaginertia="0 0 0"/>
       <camera name="robotview_right" pos="1 0 0.4" quat="0.653098 0.271041 0.271041 0.653098"/>
       <body name="link0_right">
@@ -257,12 +257,12 @@
         <site name="right_center_right" pos="0 0 0" size="0.01" group="2" rgba="1 0.3 0.3 1"/>
         <body name="link1_right" pos="0 0 0.333">
           <inertial pos="0 0 -0.07" mass="3" diaginertia="0.3 0.3 0.3"/>
-          <joint name="joint1_right" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
+          <joint name="joint1_right" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
           <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_right" mesh="link1_vis_right"/>
           <geom name="link1_collision_right" type="mesh" mesh="link1_right"/>
           <body name="link2_right" quat="0.707107 -0.707107 0 0">
             <inertial pos="0 -0.1 0" mass="3" diaginertia="0.3 0.3 0.3"/>
-            <joint name="joint2_right" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
+            <joint name="joint2_right" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
             <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature024_right" mesh="link2_vis_right"/>
             <geom name="link2_collision_right" type="mesh" mesh="link2_right"/>
             <body name="link3_right" pos="0 -0.316 0" quat="0.707107 0.707107 0 0">
@@ -283,7 +283,7 @@
                 <geom name="link4_collision_right" type="mesh" mesh="link4_right"/>
                 <body name="link5_right" pos="-0.0825 0.384 0" quat="0.707107 -0.707107 0 0">
                   <inertial pos="0 0 -0.15" mass="2" diaginertia="0.2 0.2 0.2"/>
-                  <joint name="joint5_right" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+                  <joint name="joint5_right" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
                   <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell001_001_001_003_right" mesh="link5_vis_0_right"/>
                   <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_001_001_003_right" mesh="link5_vis_1_right"/>
                   <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_002_004_003_right" mesh="link5_vis_2_right"/>
@@ -336,7 +336,7 @@
         </body>
       </body>
     </body>
-    <body name="base_left" pos="0 -0.7 0">
+    <body name="base_left" pos="0 -0.7 0" quat="0.707388 0 0 0.706825">
       <inertial pos="0 0 0" mass="0" diaginertia="0 0 0"/>
       <camera name="robotview_left" pos="1 0 0.4" quat="0.653098 0.271041 0.271041 0.653098"/>
       <body name="link0_left">
@@ -357,12 +357,12 @@
         <site name="right_center_left" pos="0 0 0" size="0.01" group="2" rgba="1 0.3 0.3 1"/>
         <body name="link1_left" pos="0 0 0.333">
           <inertial pos="0 0 -0.07" mass="3" diaginertia="0.3 0.3 0.3"/>
-          <joint name="joint1_left" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
+          <joint name="joint1_left" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
           <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_001_left" mesh="link1_vis_left"/>
           <geom name="link1_collision_left" type="mesh" mesh="link1_left"/>
           <body name="link2_left" quat="0.707107 -0.707107 0 0">
             <inertial pos="0 -0.1 0" mass="3" diaginertia="0.3 0.3 0.3"/>
-            <joint name="joint2_left" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
+            <joint name="joint2_left" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
             <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature024_left" mesh="link2_vis_left"/>
             <geom name="link2_collision_left" type="mesh" mesh="link2_left"/>
             <body name="link3_left" pos="0 -0.316 0" quat="0.707107 0.707107 0 0">
@@ -383,7 +383,7 @@
                 <geom name="link4_collision_left" type="mesh" mesh="link4_left"/>
                 <body name="link5_left" pos="-0.0825 0.384 0" quat="0.707107 -0.707107 0 0">
                   <inertial pos="0 0 -0.15" mass="2" diaginertia="0.2 0.2 0.2"/>
-                  <joint name="joint5_left" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+                  <joint name="joint5_left" pos="0 0 0" axis="0 0 1" limited="false" damping="0.1"/>
                   <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell001_001_001_003_left" mesh="link5_vis_0_left"/>
                   <geom type="mesh" contype="0" conaffinity="0" group="1" material="Shell_001_001_003_left" mesh="link5_vis_1_left"/>
                   <geom type="mesh" contype="0" conaffinity="0" group="1" material="Part__Feature_002_004_003_left" mesh="link5_vis_2_left"/>
@@ -437,6 +437,8 @@
       </body>
     </body>
     <body name="box" pos="0.2 0 0.15">
+      <joint type="free"/>
+      <geom name="box" size="0.15 0.15 0.15" type="box" group="1" friction="0.3 0.01 0.001" mass="0.05" rgba="0.3 0.3 0.3 0.5"/>
       <site name="contact_right" pos="0 0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
       <site name="contact_left" pos="0 -0.2 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
       <site name="center" pos="0 0 0" size="0.05" group="2" rgba="0.3 0.3 1 1"/>
@@ -444,14 +446,14 @@
   </worldbody>
 
   <actuator>
-    <general name="torq_j1_right" joint="joint1_right" ctrllimited="false"/>
+    <general name="torq_j1_right" joint="joint1_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j2_right" joint="joint2_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j3_right" joint="joint3_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j4_right" joint="joint4_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j5_right" joint="joint5_right" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j6_right" joint="joint6_right" ctrllimited="true" ctrlrange="-12 12"/>
     <general name="torq_j7_right" joint="joint7_right" ctrllimited="true" ctrlrange="-12 12"/>
-    <general name="torq_j1_left" joint="joint1_left" ctrllimited="false"/>
+    <general name="torq_j1_left" joint="joint1_left" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j2_left" joint="joint2_left" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j3_left" joint="joint3_left" ctrllimited="true" ctrlrange="-80 80"/>
     <general name="torq_j4_left" joint="joint4_left" ctrllimited="true" ctrlrange="-80 80"/>
