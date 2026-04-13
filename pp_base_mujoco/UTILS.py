@@ -34,12 +34,20 @@ def get_qpos_with_names (model, data, names):
 def get_qvel_with_names (model, data, names):
     qvel_ = np.zeros(len(names)) # number of qvel
     for i, name in enumerate(names):
-        idx = model.joint(name).qposadr[0]
+        # idx = model.joint(name).qposadr[0]
+        idx = model.joint(name).dofadr[0]
         qvel_[i] = data.qvel[idx]
     return qvel_
 
-""" GET P&R """
+def get_qfrc_inverse_with_names (model, data, names):
+    qfrc_ = np.zeros(len(names)) # number of qfrc_inverse
+    for i, name in enumerate(names):
+        idx = model.joint(name).dofadr[0]
+        qfrc_[i] = data.qfrc_inverse[idx]
+    return qfrc_
 
+
+""" GET P&R """
 def get_p(model, data, name, type='body'):
     try:
         if type == 'body':
@@ -74,8 +82,8 @@ def get_R(model, data, name, type='body'):
         print(f"Error: Could not find {type} named '{name}'.")
         return None
 
-""" MUJOCO APPLY QPOS """
-    
+
+""" MUJOCO APPLY QPOS, QVEL, QACC """
 def apply_qpos_idxs (model, data, idxs, value):
     if len(idxs) != len(value):
         raise ValueError("length of name and value is different")
@@ -91,9 +99,25 @@ def apply_qpos_names (model, data, names, value):
     for i, idx in enumerate(indexs):
         data.qpos[idx] = value[i]
 
+def apply_qvel_names (model, data, names, value):
+    if len(names) != len(value):
+        raise ValueError("length of names and value is different")
+    # initialize
+    indexs = [model.joint(joint_name).dofadr[0] for joint_name in names]
+    # should fetch with dofadr when qvel & qacc
+    for i, idx in enumerate(indexs):
+        data.qvel[idx] = value[i]
+    
+def apply_qacc_names (model, data, names, value):
+    if len(names) != len(value):
+        raise ValueError("length of names and value is different")
+    # initialize
+    indexs = [model.joint(joint_name).dofadr[0] for joint_name in names]
+    for i, idx in enumerate(indexs):
+        data.qacc[idx] = value[i]
+
 
 """ MUJOCO APPLY CONTROL """
-
 def apply_ctrl_idxs (model, data, idxs, value):
     if len(idxs) != len(value):
         raise ValueError("length of name and value is different")
@@ -175,3 +199,26 @@ def rmat2rotvec(R):
     axis = axis / (2.0 * np.sin(theta)) # normalize 
     
     return theta * axis
+
+
+""" CONTACT INFORMATION """
+def get_contact_body_force_position(
+        model,
+        data,
+        body1_name,
+        body2_name,
+        ):
+    body1_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, body1_name)
+    body2_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, body2_name)
+    contact_forces = []
+    contact_positions = []
+    for i in range(data.ncon):
+        contact = data.contact[i]
+        body1_in_contact_id = model.geom_bodyid[contact.geom1]
+        body2_in_contact_id = model.geom_bodyid[contact.geom2]
+        if (body1_in_contact_id == body1_id and body2_in_contact_id == body2_id) or (body1_in_contact_id == body2_id and body2_in_contact_id == body1_id):
+            force = np.zeros(6) # (6,)
+            mujoco.mj_contactForce(model,data,i,force)
+            contact_forces.append(force)
+            contact_positions.append(contact.pos)
+    return contact_forces, contact_positions
